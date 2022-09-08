@@ -1,0 +1,72 @@
+.modal{
+position:fixed;
+left:0;
+top:0;
+right: 0;
+bottom:0;
+background-color: rgba(0,0,0,0.5);
+display: flex;
+align-items: center;
+justify-content:center;
+}
+.modal-content{
+    width: 500px;
+    background-color: #fff;
+
+}
+.modal-header{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 0.1fr 1fr 0.1fr;
+    justify-content: center;
+    align-items: center;
+}
+.modal-footer{
+    padding: 10px;
+    display: grid;
+}
+.modal-title{
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.modal-body{
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  row-gap: 10px;
+  column-gap: 10px;
+  justify-content: right;
+  align-items: center;
+}
+.modalCloseButton, .modalSaveButton{
+    border-radius: 8px;
+    border: 0.5px solid gray;
+    padding: 5px;
+}
+.modalDeleteButton{
+    border-radius: 8px;
+    border: 0.5px solid red;
+    padding: 5px;
+    color: red;
+}
+.interactNotes{
+    width: 400x;
+    height: 100px;
+}
+
+.confirmation-modal-header{
+  text-align: center;
+}
+
+.confirmation-modal-body{
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

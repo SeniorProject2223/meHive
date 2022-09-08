@@ -1,0 +1,90 @@
+{
+    "USE_DUMMY_CONNECTION": true,
+    "DUMMY_CODE": {"data": {
+            "access_token": "DUMMY DATA. DOES NOT MATCH ACTUAL SALESFORCE VALUE"
+    }},
+    "DUMMY_FIRST_CONTACT": {"data": {
+        "totalSize": 1,
+        "done": true,
+        "records": [
+            {
+                "attributes": {
+                    "type": "Contact",
+                    "url": "/services/data/v54.0/sobjects/Contact/003750000085yfpAAA"
+                },
+                "Id": "DUMMYCONTACT1",
+                "LastName": "Anderson",
+                "FirstName": "Adrian",
+                "MiddleName": "",
+                "Employer": "Example Inc.",
+                "MobilePhone": "9876543210",
+                "WorkPhone": "1234567890",
+                "WorkEmail": "anderson@example.com",
+                "PersonalEmail" : "anderson@gmail.com",
+                "Title": "Sales Associate",
+                "Department": null,
+                "Website" : "anderson.github.io"
+            }
+        ]
+    }},
+    "DUMMY_CONTACT_LIST": {"data":{
+        "totalSize": 3,
+        "done": true,
+        "records": [
+            {
+                "attributes": {
+                    "type": "Contact",
+                    "url": "/services/data/v54.0/sobjects/Contact/003750000085yfpAAA"
+                },
+                "Id": "DUMMYCONTACT1",
+                "LastName": "Anderson",
+                "FirstName": "Adrian",
+                "MiddleName": "",
+                "Employer": "Example Inc.",
+                "MobilePhone": "9876543210",
+                "WorkPhone": "1234567890",
+                "WorkEmail": "anderson@example.com",
+                "PersonalEmail" : "anderson@gmail.com",
+                "Title": "Sales Associate",
+                "Department": null,
+                "Website" : "anderson.github.io"
+            },
+            {
+                "attributes": {
+                    "type": "Contact",
+                    "url": "/services/data/v54.0/sobjects/Contact/003750000085yfpAAA"
+                },
+                "Id": "DUMMYCONTACT2",
+                "LastName": "Barnhardt",
+                "FirstName": "Brian",
+                "MiddleName": "",
+                "Employer": "Example Inc.",
+                "MobilePhone": "1029384756",
+                "WorkPhone": "6574839201",
+                "WorkEmail": "barnhardt@example.com",
+                "PersonalEmail" : "brianb@gmail.com",
+                "Title": "QA Tester",
+                "Department": null,
+                "Website" : null
+            },
+            {
+                "attributes": {
+                    "type": "Contact",
+                    "url": "/services/data/v54.0/sobjects/Contact/003750000085yfpAAA"
+                },
+                "Id": "DUMMYCONTACT3",
+                "LastName": "Cohen",
+                "FirstName": "Catherine",
+                "MiddleName": "",
+                "Employer": "Example Inc.",
+                "MobilePhone": "1627384950",
+                "WorkPhone": "5049382716",
+                "WorkEmail": "cc@example.com",
+                "PersonalEmail" : "cohencat@gmail.com",
+                "Title": "CEO",
+                "Department": null,
+                "Website" : "example.com"
+            }
+        ]
+    }}
+}
