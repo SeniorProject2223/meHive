@@ -10,7 +10,7 @@
 // import { NavigationContainer } from '@react-navigation/native';
 import React, { Component } from 'react';
 // import MainStackNavigator from './navigation/MainStackNavigator.js';
-import HomeScreen from './screens/HomeScreen.js';
+import HomeScreen2 from './screens/HomeScreen2.js';
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
       // <NavigationContainer>
       //   <MainStackNavigator></MainStackNavigator>
       // </NavigationContainer>
-      <HomeScreen></HomeScreen>
+      <HomeScreen2></HomeScreen2>
     );
   }
 }
