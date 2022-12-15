@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.38e870a2.chunk.css",
+    "main.js": "/static/js/main.7b7dd687.chunk.js",
+    "main.js.map": "/static/js/main.7b7dd687.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.961cf860.js",
+    "runtime-main.js.map": "/static/js/runtime-main.961cf860.js.map",
+    "static/js/2.70e9cfac.chunk.js": "/static/js/2.70e9cfac.chunk.js",
+    "static/js/2.70e9cfac.chunk.js.map": "/static/js/2.70e9cfac.chunk.js.map",
+    "static/js/3.17dd89b0.chunk.js": "/static/js/3.17dd89b0.chunk.js",
+    "static/js/3.17dd89b0.chunk.js.map": "/static/js/3.17dd89b0.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.38e870a2.chunk.css.map": "/static/css/main.38e870a2.chunk.css.map",
+    "static/js/2.70e9cfac.chunk.js.LICENSE.txt": "/static/js/2.70e9cfac.chunk.js.LICENSE.txt",
+    "static/media/2015-09-meHive-launch.30fc01ff.png": "/static/media/2015-09-meHive-launch.30fc01ff.png",
+    "static/media/btn_int_email@2x.0953ca6f.png": "/static/media/btn_int_email@2x.0953ca6f.png",
+    "static/media/moon.cfa37b17.png": "/static/media/moon.cfa37b17.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.961cf860.js",
+    "static/js/2.70e9cfac.chunk.js",
+    "static/css/main.38e870a2.chunk.css",
+    "static/js/main.7b7dd687.chunk.js"
+  ]
+}
