@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import ContactProfile from './ContactProfile';
 import AddContact from './addContact';
 import UserSelection from './UserSelection';
+import UserLogin from './UserLogin';
 import SalesforceAuth from './salesforceAuth';
 import SalesforceImport from './salesforceImport'
 import Error from './Error';
@@ -14,7 +15,7 @@ function App() {
     <BrowserRouter>
       <Routes>
 
-          <Route path="/" element={<UserSelection></UserSelection>}></Route>
+          <Route path="/" element={<UserLogin></UserLogin>}></Route>
           <Route path="error" element={<Error></Error>}></Route>
           <Route path="contacts" element={<ContactListPage></ContactListPage>}> </Route>
           <Route path="profile" element={<ContactProfile></ContactProfile>}> </Route>
