@@ -629,12 +629,14 @@ class ContactListPageCore extends React.Component{
                             <h2>INTERACTIONS</h2>
                                 <div className="contactListPageInteractionsColumn">
                                     <img id="dragLargeGroup" src={largeGroup} style={{width: 110, height: 110 , margin: 0}} 
-                                    onDragStart={(event)=>{event.dataTransfer.setData("text", "LargeGroup")}}
+                                    onDragStart={(event)=>{
+                                        event.dataTransfer.setData("text", "LargeGroup");
+                                    }}
                                     draggable="true" 
                                     alt="Large Group Icon"
                                     onClick={(event) => {
                                         if(true) { // Check if on mobile
-                                            event.dataTransfer.setData("text", "LargeGroup");
+                                            this.showLargeGroupModal();
                                         }
                                         }}/>
                                     <img id="dragSmallGroup" src={smallGroup} style={{width: 110, height: 110 , margin: 0}} 
@@ -643,7 +645,7 @@ class ContactListPageCore extends React.Component{
                                     alt="Small Group Icon"
                                     onClick={(event) => {
                                         if(true) { // Check if on mobile
-                                            event.dataTransfer.setData("text", "SmallGroup");
+                                            this.showSmallGroupModal();
                                         }
                                         }}/>
                                     <img id="dragEmail" src={email_social} style={{width: 110, height: 110 , margin: 0}} 
@@ -652,7 +654,7 @@ class ContactListPageCore extends React.Component{
                                     alt="Email Icon"
                                     onClick={(event) => {
                                         if(true) { // Check if on mobile
-                                            event.dataTransfer.setData("text", "EmailSocial");
+                                            this.showEmailSocialModal();
                                         }
                                         }}/>
                                     <img id="dragPhone" src={phone} style={{width: 110, height: 110 , margin: 0}} 
@@ -661,7 +663,7 @@ class ContactListPageCore extends React.Component{
                                     alt="Phone Icon"
                                     onClick={(event) => {
                                         if(true) { // Check if on mobile
-                                            event.dataTransfer.setData("text", "Phone");
+                                            this.showPhoneModal();
                                         }
                                         }}/>
                                     <img id="dragDirect" src={direct} style={{width: 110, height: 110 , margin: 0}} 
@@ -670,7 +672,7 @@ class ContactListPageCore extends React.Component{
                                     alt="Direct Icon"
                                     onClick={(event) => {
                                         if(true) { // Check if on mobile
-                                            event.dataTransfer.setData("text", "Direct");
+                                            this.showDirectModal();
                                         }
                                         }}/>
                                 </div>   
