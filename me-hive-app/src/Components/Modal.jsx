@@ -10,6 +10,10 @@ export default class Modal extends React.Component {
     super(props);
     this.newInteraction = {};
     this.resetInteraction()
+    this.state = {
+      users: props.groupContacts,
+      contactID: !!props.contactID ? props.contactID : props.groupContacts[0].id
+    };
   }
 
   getCurrentDate(){
@@ -44,7 +48,7 @@ export default class Modal extends React.Component {
 
   createInteraction(){
     //console.log(JSON.stringify(this.newInteraction));
-    infohandler.addInteraction(this.props.userID, this.props.contactID, this.newInteraction)
+    infohandler.addInteraction(this.props.userID, this.state.contactID, this.newInteraction)
     .then((res) => {
         //console.log(res);
         this.props.onClose();
@@ -195,7 +199,13 @@ export default class Modal extends React.Component {
             </div>
             <div className="modal-body">
               <div>Contact:</div>
-              <button onClick={evt => {console.log('select contact')}} class="modalSaveButton">Add Contact Here</button>
+              <select value={this.state.contactID} onChange={(event) => {
+                this.setState({contactID: event.target.selectedOptions[0].value});
+              }}>
+              {this.state.users.map((user) => {
+                return <option value={user.id}>{user.f_name} {user.l_name}</option>
+              })}
+            </select>
               <div>Date of Interaction:</div>
               <input type="date" id="interaction_date" name="interaction_date" defaultValue={this.getCurrentDate()} onChange={evt => this.updateDate(evt)}/>
               <div>Direction:</div>

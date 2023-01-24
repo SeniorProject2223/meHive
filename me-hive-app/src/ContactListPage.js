@@ -609,11 +609,11 @@ class ContactListPageCore extends React.Component{
                             :
                             <div></div>
                             }        
-                            <Modal show={activeModal === 'largeGroup'} onClose={this.hideModal} interactionType={1} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add'/>
-                            <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add'/>
-                            <Modal show={this.state.activeModal === 'phone'} onClose={this.hideModal} interactionType={4} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add'/>
-                            <Modal show={this.state.activeModal === 'emailSocial'}  onClose={this.hideModal} interactionType={2} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add'/>
-                            <Modal show={this.state.activeModal === 'direct'} onClose={this.hideModal} interactionType={5} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add'/>
+                            <Modal show={activeModal === 'largeGroup'} onClose={this.hideModal} interactionType={1} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'phone'} onClose={this.hideModal} interactionType={4} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'emailSocial'}  onClose={this.hideModal} interactionType={2} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'direct'} onClose={this.hideModal} interactionType={5} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
 
 
                             <MultiInteraction show={activeModal === 'multiLargeGroup'} onClose={this.hideModal} interactionType={1} userID = {id} contactID = {this.selectedContactIDs} mode='add'/>
