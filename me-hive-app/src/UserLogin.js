@@ -68,7 +68,7 @@ const UserLogin = (props) => {
     }
 
     handleMoveToRegister(){
-        //this.props.navigate("/register", { state: { userId: 0}});
+        this.props.navigate("/register", { state: { userId: 0}});
     }
 
     render() {
@@ -91,10 +91,10 @@ const UserLogin = (props) => {
                         </input>
                     </div>
                     <div class="redirectButtonContainer">
-                        <button class="redirectButton" onClick = {this.handleGetUser}> Enter </button>
+                        <button class="redirectButton" onClick = {()=>{this.handleGetUser()}}> Enter </button>
                     </div>
                     <div class="redirectButtonContainer">
-                        <button class="redirectButton" onClick = {this.handleMoveToRegister}> Register</button>
+                        <button class="redirectButton" onClick = {()=>{this.handleMoveToRegister()}}> Register</button>
                     </div>
                 </div>
             );

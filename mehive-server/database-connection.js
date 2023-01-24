@@ -28,7 +28,7 @@ module.exports.getUsers = function() {
 }
 
 //only used for testing
-module.exports.createUser = function(email) {
+module.exports.createUser = function(email, password) {
     return new Promise(function(resolve, reject) {
         connection.query('CALL sp_CreateUser(?, ?, ?)', [email, "DUMMY_HASH", "DUMMY_SALT"],
         function (err, rows, fields) {

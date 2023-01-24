@@ -66,6 +66,16 @@ const UserRegister = (props) => {
         
     }
 
+    registerUser() {
+        let email = document.getElementById("username").value;
+        let upass = document.getElementById("password").value;
+        // hash and salt here
+        infohandler.createUser(email, upass); // replace function with (email, hash, salt). 
+        // related functions in database-connection.js and informationHandler.mjs
+
+        this.props.navigate("/");
+    }
+
     render() {
         if (this.state.loading) {
             return ( <div>loading....</div>);
@@ -86,10 +96,10 @@ const UserRegister = (props) => {
                         </input>
                     </div>
                     <div class="redirectButtonContainer">
-                        <button class="redirectButton" onClick = {this.handleGetUser}> Register</button>
+                        <button class="redirectButton" onClick = {()=>{this.registerUser()}}> Register</button>
                     </div>
                     <div class="redirectButtonContainer">
-                        <button class="redirectButton" onClick = {this.props.navigate("/auth")}> Return to Login</button>
+                        <button class="redirectButton" onClick = {()=>{this.props.navigate("/")}}> Return to Login</button>
                     </div>
                 </div>
             );

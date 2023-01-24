@@ -219,6 +219,18 @@ router.put('/editgroup/:userid/:groupid', function(req, res, next) {
   })
 });
 
+/* POST User */
+router.post('/createUser', function(req, res, next) {
+  db.createUser(req.body.username, req.body.password).then(function(results) {
+    res.send();
+  }).catch(function(err) {
+    console.log(err);
+    res.statusCode = 500;
+    res.send();
+  })
+});
+
+
 /* DELETE group */
 router.delete('/deletegroup/:userid/:groupid', function(req, res, next) {
   db.deleteGroup(req.params.userid, req.params.groupid).then(function(results){

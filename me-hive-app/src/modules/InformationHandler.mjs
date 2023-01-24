@@ -15,6 +15,13 @@ export function getUserList(){
     return fetch(`${api}/userlist`)
 }
 
+export function createUser(username, pass){
+    return fetch(`${api}/createUser`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({"username": username, "password": pass})});
+}
+
 
 export function setUserID(id) {
     //console.log("setUserID: "+ id)
