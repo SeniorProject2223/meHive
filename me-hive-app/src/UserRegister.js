@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import * as infohandler from './modules/InformationHandler.mjs';
 
-const UserLogin = (props) => {
+const UserRegister = (props) => {
     const navigate = useNavigate();
     const location = useLocation(); 
-    return <UserLoginCore navigate={navigate}></UserLoginCore>
+    return <UserRegisterCore navigate={navigate}></UserRegisterCore>
 }
 
- class UserLoginCore extends React.Component{
+ class UserRegisterCore extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +23,6 @@ const UserLogin = (props) => {
         this.handleChange = this.handleChange.bind(this);
         this.handleGetUser = this.handleGetUser.bind(this);
         this.handleUserLookup = this.handleUserLookup.bind(this);
-        this.handleMoveToRegister = this.handleMoveToRegister.bind(this);
     }
 
     handleChange(e) {
@@ -67,16 +66,12 @@ const UserLogin = (props) => {
         
     }
 
-    handleMoveToRegister(){
-        //this.props.navigate("/register", { state: { userId: 0}});
-    }
-
     render() {
         if (this.state.loading) {
             return ( <div>loading....</div>);
         } else {
             return (
-                <div class="UserLoginContainer">
+                <div class="UserRegisterContainer">
                     <div class = "userSelect">
                         <img src={logo} alt="logo"></img>
                         {/* <select class="userDropDown" id="selection" onChange={this.handleChange}> 
@@ -91,10 +86,10 @@ const UserLogin = (props) => {
                         </input>
                     </div>
                     <div class="redirectButtonContainer">
-                        <button class="redirectButton" onClick = {this.handleGetUser}> Enter </button>
+                        <button class="redirectButton" onClick = {this.handleGetUser}> Register</button>
                     </div>
                     <div class="redirectButtonContainer">
-                        <button class="redirectButton" onClick = {this.handleMoveToRegister}> Register</button>
+                        <button class="redirectButton" onClick = {this.props.navigate("/auth")}> Return to Login</button>
                     </div>
                 </div>
             );
@@ -102,4 +97,4 @@ const UserLogin = (props) => {
     }
 }
 
-export default UserLogin;
+export default UserRegister;

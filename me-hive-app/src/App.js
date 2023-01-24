@@ -6,7 +6,8 @@ import AddContact from './addContact';
 import UserSelection from './UserSelection';
 import UserLogin from './UserLogin';
 import SalesforceAuth from './salesforceAuth';
-import SalesforceImport from './salesforceImport'
+import SalesforceImport from './salesforceImport';
+import UserRegister from './UserRegister';
 import Error from './Error';
 import React from "react";
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="profile" element={<ContactProfile></ContactProfile>}> </Route>
           <Route path="add" element={<AddContact key = {"isNew"} isNew = {1}></AddContact>}> </Route>
           <Route path="edit" element={<AddContact key = {"isNew"} isNew = {0}></AddContact>}> </Route>
+          <Route path="register" element={<UserRegister></UserRegister>}> </Route>
           <Route path="auth" element={<SalesforceAuth></SalesforceAuth>}> </Route>
           <Route path="import" element={<SalesforceImport></SalesforceImport>}> </Route>
       </Routes>
