@@ -631,23 +631,48 @@ class ContactListPageCore extends React.Component{
                                     <img id="dragLargeGroup" src={largeGroup} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "LargeGroup")}}
                                     draggable="true" 
-                                    alt="Large Group Icon"/>
+                                    alt="Large Group Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            event.dataTransfer.setData("text", "LargeGroup");
+                                        }
+                                        }}/>
                                     <img id="dragSmallGroup" src={smallGroup} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "SmallGroup")}}
                                     draggable="true"
-                                    alt="Small Group Icon"/>
+                                    alt="Small Group Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            event.dataTransfer.setData("text", "SmallGroup");
+                                        }
+                                        }}/>
                                     <img id="dragEmail" src={email_social} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "EmailSocial")}}
                                     draggable="true"
-                                    alt="Email Icon"/>
+                                    alt="Email Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            event.dataTransfer.setData("text", "EmailSocial");
+                                        }
+                                        }}/>
                                     <img id="dragPhone" src={phone} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "Phone")}}
                                     draggable="true"
-                                    alt="Phone Icon"/>
+                                    alt="Phone Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            event.dataTransfer.setData("text", "Phone");
+                                        }
+                                        }}/>
                                     <img id="dragDirect" src={direct} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "Direct")}}
                                     draggable="true"
-                                    alt="Direct Icon"/>
+                                    alt="Direct Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            event.dataTransfer.setData("text", "Direct");
+                                        }
+                                        }}/>
                                 </div>   
                             </div>            
                         </div>
