@@ -5,6 +5,7 @@ import logo from './Assets/2015-09-meHive-launch.png'
 import { useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import * as infohandler from './modules/InformationHandler.mjs';
+import bcrypt from 'bcryptjs';
 
 const UserRegister = (props) => {
     const navigate = useNavigate();
@@ -55,6 +56,8 @@ const UserRegister = (props) => {
         let user = this.handleUserLookup(email);
         this.handleChange(user.id);
         let upass = document.getElementById("password").value;
+
+        
         //get user with uname
         //get salt
         //hash
@@ -66,11 +69,15 @@ const UserRegister = (props) => {
         
     }
 
-    registerUser() {
+    async registerUser() {
         let email = document.getElementById("username").value;
         let upass = document.getElementById("password").value;
-        // hash and salt here
-        infohandler.createUser(email, upass); // replace function with (email, hash, salt). 
+        let salt = await bcrypt.genSalt();
+        let hash = await bcrypt.hash(upass, salt);
+        console.log(salt);
+        console.log(hash);
+        //Why is hash and salt not working?
+        infohandler.createUser(email, hash, salt); // replace function with (email, hash, salt). 
         // related functions in database-connection.js and informationHandler.mjs
 
         this.props.navigate("/");
