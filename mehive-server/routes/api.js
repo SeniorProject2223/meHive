@@ -221,7 +221,7 @@ router.put('/editgroup/:userid/:groupid', function(req, res, next) {
 
 /* POST User */
 router.post('/createUser', function(req, res, next) {
-  db.createUser(req.body.username, req.body.password).then(function(results) {
+  db.createUser(req.body.username, req.body.hash, req.body.salt).then(function(results) {
     res.send();
   }).catch(function(err) {
     console.log(err);
