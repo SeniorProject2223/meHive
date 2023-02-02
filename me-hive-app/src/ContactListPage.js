@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css';
+import './PhoneApp.css';
 import NavBar from './Components/Navbar';
 import largeGroup from './Assets/View Contact Assets/Images/btn_int_lg_group@2x.png';
 import smallGroup from './Assets/View Contact Assets/Images/btn_int_sm_group@2x.png';
@@ -626,7 +627,9 @@ class ContactListPageCore extends React.Component{
                             <DeleteGroupModal ref={this.deleteGroupModal} show={this.state.activeModal === "deleteGroup"} onClose={this.hideContactModal}></DeleteGroupModal>     
                         </div>
                         <div className="interactions"> 
-                            <h2>INTERACTIONS</h2>
+                            <div id="interactions-header">
+                                <h2>INTERACTIONS</h2>
+                            </div>
                                 <div className="contactListPageInteractionsColumn">
                                     <img id="dragLargeGroup" src={largeGroup} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "LargeGroup")}}
