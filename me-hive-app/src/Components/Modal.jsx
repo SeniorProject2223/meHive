@@ -10,6 +10,10 @@ export default class Modal extends React.Component {
     super(props);
     this.newInteraction = {};
     this.resetInteraction()
+    this.state = {
+      users: props.groupContacts,
+      contactID: !!props.contactID ? props.contactID : props.groupContacts[0].id
+    };
   }
 
   getCurrentDate(){
@@ -44,7 +48,7 @@ export default class Modal extends React.Component {
 
   createInteraction(){
     //console.log(JSON.stringify(this.newInteraction));
-    infohandler.addInteraction(this.props.userID, this.props.contactID, this.newInteraction)
+    infohandler.addInteraction(this.props.userID, this.state.contactID, this.newInteraction)
     .then((res) => {
         //console.log(res);
         this.props.onClose();
@@ -144,44 +148,92 @@ export default class Modal extends React.Component {
       return null;
     }
     this.getCurrentDate();
-  return ( 
-    <div className="modal">
-      <div className="modal-content">
-        <div className="modal-header">
-        <button onClick={this.props.onClose} className="modalCloseButton">Cancel</button>
-        <h3 className="modal-title">Interaction with {this.props.fName} {this.props.lName}</h3>
-        <button onClick={evt => this.saveInteraction()} className="modalSaveButton">Save</button>
-        </div>
-        <div className="modal-body">
-          <div>Contact:</div>
-          <div>{this.props.fName} {this.props.lName}</div>
-          <div>Date of Interaction:</div>
-          <input type="date" id="interaction_date" name="interaction_date" defaultValue={this.getCurrentDate()} onChange={evt => this.updateDate(evt)}/>
-          <div>Direction:</div>
-          <div className="directionField">
-            <input type="radio" id="contactThem" name="switch-direction" defaultValue="outward" onChange={evt => this.updateDirection(0)} defaultChecked />
-            <label for="contactThem">I contacted them</label>
-            <input type="radio" id="contactMe" name="switch-direction" defaultValue="inward" onChange={evt => this.updateDirection(1)}/>
-            <label for="ContactMe">They contacted me</label>
-          
+    if(this.props.fName && this.props.lName) {
+      return ( 
+        <div className="modal">
+          <div className="modal-content">
+            <div className="modal-header">
+            <button onClick={this.props.onClose} className="modalCloseButton">Cancel</button>
+            <h3 className="modal-title">Interaction with {this.props.fName} {this.props.lName}</h3>
+            <button onClick={evt => this.saveInteraction()} className="modalSaveButton">Save</button>
+            </div>
+            <div className="modal-body">
+              <div>Contact:</div>
+              <div>{this.props.fName} {this.props.lName}</div>
+              <div>Date of Interaction:</div>
+              <input type="date" id="interaction_date" name="interaction_date" defaultValue={this.getCurrentDate()} onChange={evt => this.updateDate(evt)}/>
+              <div>Direction:</div>
+              <div className="directionField">
+                <input type="radio" id="contactThem" name="switch-direction" defaultValue="outward" onChange={evt => this.updateDirection(0)} defaultChecked />
+                <label for="contactThem">I contacted them</label>
+                <input type="radio" id="contactMe" name="switch-direction" defaultValue="inward" onChange={evt => this.updateDirection(1)}/>
+                <label for="ContactMe">They contacted me</label>
+              
+              </div>
+              <div>Did someone make the interaction on your behalf?</div>
+              <div className="interactionBehalfField">
+                <input type="radio" id="onMyBehalf" name="switch-behalf" defaultValue="Yes" onChange={evt => this.updateIsThirdParty(1)}/>
+                <label for="onMyBehalf">YES</label>
+                <input type="radio" id="notOnMyBehalf" name="switch-behalf" defaultValue="No" onChange={evt => this.updateIsThirdParty(0)} defaultChecked/>
+                <label for="notOnMyBehalf">NO</label>
+              
+              </div>
+              <div>Anything memorable?</div>
+              {/* <input type="text" className="interactNotes" id="interactionNotes" name="interactionNotes"></input> */}
+              <textarea name="text" id="details" rows="14" cols="10" wrap="soft" onChange={evt => this.updateDetails(evt)}> </textarea>
+            </div>
+            <div className="modal-footer">
+             {this.renderDeleteButton()}
+            </div>
           </div>
-          <div>Did someone make the interaction on your behalf?</div>
-          <div className="interactionBehalfField">
-            <input type="radio" id="onMyBehalf" name="switch-behalf" defaultValue="Yes" onChange={evt => this.updateIsThirdParty(1)}/>
-            <label for="onMyBehalf">YES</label>
-            <input type="radio" id="notOnMyBehalf" name="switch-behalf" defaultValue="No" onChange={evt => this.updateIsThirdParty(0)} defaultChecked/>
-            <label for="notOnMyBehalf">NO</label>
-          
+        </div>
+      )
+    } else {
+      return (
+        <div className="modal">
+          <div className="modal-content">
+            <div className="modal-header">
+            <button onClick={this.props.onClose} className="modalCloseButton">Cancel</button>
+            <h3 className="modal-title">Interaction</h3>
+            <button onClick={evt => this.saveInteraction()} className="modalSaveButton">Save</button>
+            </div>
+            <div className="modal-body">
+              <div>Contact:</div>
+              <select value={this.state.contactID} onChange={(event) => {
+                this.setState({contactID: event.target.selectedOptions[0].value});
+              }}>
+              {this.state.users.map((user) => {
+                return <option value={user.id}>{user.f_name} {user.l_name}</option>
+              })}
+            </select>
+              <div>Date of Interaction:</div>
+              <input type="date" id="interaction_date" name="interaction_date" defaultValue={this.getCurrentDate()} onChange={evt => this.updateDate(evt)}/>
+              <div>Direction:</div>
+              <div className="directionField">
+                <input type="radio" id="contactThem" name="switch-direction" defaultValue="outward" onChange={evt => this.updateDirection(0)} defaultChecked />
+                <label for="contactThem">I contacted them</label>
+                <input type="radio" id="contactMe" name="switch-direction" defaultValue="inward" onChange={evt => this.updateDirection(1)}/>
+                <label for="ContactMe">They contacted me</label>
+              
+              </div>
+              <div>Did someone make the interaction on your behalf?</div>
+              <div className="interactionBehalfField">
+                <input type="radio" id="onMyBehalf" name="switch-behalf" defaultValue="Yes" onChange={evt => this.updateIsThirdParty(1)}/>
+                <label for="onMyBehalf">YES</label>
+                <input type="radio" id="notOnMyBehalf" name="switch-behalf" defaultValue="No" onChange={evt => this.updateIsThirdParty(0)} defaultChecked/>
+                <label for="notOnMyBehalf">NO</label>
+              
+              </div>
+              <div>Anything memorable?</div>
+              {/* <input type="text" className="interactNotes" id="interactionNotes" name="interactionNotes"></input> */}
+              <textarea name="text" id="details" rows="14" cols="10" wrap="soft" onChange={evt => this.updateDetails(evt)}> </textarea>
+            </div>
+            <div className="modal-footer">
+             {this.renderDeleteButton()}
+            </div>
           </div>
-          <div>Anything memorable?</div>
-          {/* <input type="text" className="interactNotes" id="interactionNotes" name="interactionNotes"></input> */}
-          <textarea name="text" id="details" rows="14" cols="10" wrap="soft" onChange={evt => this.updateDetails(evt)}> </textarea>
         </div>
-        <div className="modal-footer">
-         {this.renderDeleteButton()}
-        </div>
-      </div>
-    </div>
-  )
+      );
+    }
   }
 }
