@@ -447,7 +447,7 @@ class ContactListPageCore extends React.Component{
                                         <option value="CompanyASC">Company (A-Z)</option>
                                         <option value="CompanyDSC">Company (Z-A)</option>
                                     </select>
-                                    <input className = "searchBar"  type="text" placeholder="Search for Contact" onChange={this.filterWithSearch}/>
+                                    <input className = "searchBar"  type="text" placeholder="Search" onChange={this.filterWithSearch}/>
                                 </div> 
                            
                             <div className='contactListScroll'>
