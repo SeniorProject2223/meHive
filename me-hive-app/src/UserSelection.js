@@ -46,7 +46,7 @@ const UserSelection = (props) => {
             return (
                 <div class="userSelectionContainer">
                     <div class = "userSelect">
-                        <img src={logo} alt="logo"></img>
+                        <img src={logo} alt="logo" width='100%' height='133%'></img>
                         <h3>Please select from the following list of users :</h3>
                         <select class="userDropDown" id="selection" onChange={this.handleChange}> 
                             <option>SELECT USER</option> 
