@@ -95,6 +95,11 @@ align-items: center;
     text-align: center;
     /* align-items: center; */
 }
+.profileInteractionIcon {
+    width: 125px; 
+    height: 125px; 
+    margin: 0;
+}
 .interactionHistoryEntry{
     /* background-color: rgb(240, 240, 240); */
     display: grid;

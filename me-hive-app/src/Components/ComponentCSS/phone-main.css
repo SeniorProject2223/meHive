@@ -3,10 +3,12 @@
         background-color : white;
         text-align: center;
         flex-direction: column;
+        font-size: 0.75em;
     }
     .credentials{
         text-align: left;
         margin-left: 20px;
+        font-size: 0.75em;
     }
     .profilePic{
         height: 100%;
@@ -85,20 +87,27 @@
     .interactionsContainer{
         /* background-color: rgb(240, 240, 240); */
         display: grid;
-        grid-template-columns: repeat(5, 0.5fr);
+        grid-template-columns: repeat(3, 0.3fr);
     }
     .interactionGridItem{
         display: grid;
         justify-content: center;
         text-align: center;
+        width: 50%;
+        height: 50%;
         /* align-items: center; */
+    }
+    .profileInteractionIcon {
+        width: 50px; 
+        height: 50px; 
+        margin: 0;
     }
     .interactionHistoryEntry{
         /* background-color: rgb(240, 240, 240); */
         display: grid;
         /* grid-template-areas: "date desc desc desc details"; */
         grid-template-columns: 0.2fr 1fr 0.2fr;
-        column-gap: 40px;
+        column-gap: 2em;
         justify-content: start;
         align-items: center;
         height: 4em;
@@ -108,16 +117,19 @@
     .interaction_history_details{
         justify-self: center;
         /* grid-area: details; */
+        font-size: 0.5em;
     } 
     
     .interaction_history_date{
         justify-self: center;
         /* padding-left: 20px; */
         /* grid-area: date; */
+        font-size: 0.5em;
     } 
     .interaction_history_description{
         justify-self: flex-start;
         /* grid-area: desc; */
+        font-size: 0.5em;
     }
     .meHiveToolBar{
     display: grid;
@@ -161,8 +173,8 @@
     
     }
     .contactName, .lastContactLabel{
-        margin: 2px
-    
+        margin: 2px;
+        font-size: 1em;
     }
     .modal-footer{
         display: grid;
@@ -180,7 +192,7 @@
     .snoozedButton{
         background-color: rgb(244, 100, 4);
         color: white;
-        font-size: medium;
+        font-size: 0.5em;
         padding: 5px;
         border-radius: 6px;
     }    
