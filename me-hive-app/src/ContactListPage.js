@@ -610,11 +610,11 @@ class ContactListPageCore extends React.Component{
                             :
                             <div></div>
                             }        
-                            <Modal show={activeModal === 'largeGroup'} onClose={this.hideModal} interactionType={1} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add'/>
-                            <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add'/>
-                            <Modal show={this.state.activeModal === 'phone'} onClose={this.hideModal} interactionType={4} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add'/>
-                            <Modal show={this.state.activeModal === 'emailSocial'}  onClose={this.hideModal} interactionType={2} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add'/>
-                            <Modal show={this.state.activeModal === 'direct'} onClose={this.hideModal} interactionType={5} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add'/>
+                            <Modal show={activeModal === 'largeGroup'} onClose={this.hideModal} interactionType={1} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'phone'} onClose={this.hideModal} interactionType={4} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'emailSocial'}  onClose={this.hideModal} interactionType={2} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'direct'} onClose={this.hideModal} interactionType={5} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
 
 
                             <MultiInteraction show={activeModal === 'multiLargeGroup'} onClose={this.hideModal} interactionType={1} userID = {id} contactID = {this.selectedContactIDs} mode='add'/>
@@ -632,25 +632,52 @@ class ContactListPageCore extends React.Component{
                             </div>
                                 <div className="contactListPageInteractionsColumn">
                                     <img id="dragLargeGroup" src={largeGroup} style={{width: 110, height: 110 , margin: 0}} 
-                                    onDragStart={(event)=>{event.dataTransfer.setData("text", "LargeGroup")}}
+                                    onDragStart={(event)=>{
+                                        event.dataTransfer.setData("text", "LargeGroup");
+                                    }}
                                     draggable="true" 
-                                    alt="Large Group Icon"/>
+                                    alt="Large Group Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            this.showLargeGroupModal();
+                                        }
+                                        }}/>
                                     <img id="dragSmallGroup" src={smallGroup} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "SmallGroup")}}
                                     draggable="true"
-                                    alt="Small Group Icon"/>
+                                    alt="Small Group Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            this.showSmallGroupModal();
+                                        }
+                                        }}/>
                                     <img id="dragEmail" src={email_social} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "EmailSocial")}}
                                     draggable="true"
-                                    alt="Email Icon"/>
+                                    alt="Email Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            this.showEmailSocialModal();
+                                        }
+                                        }}/>
                                     <img id="dragPhone" src={phone} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "Phone")}}
                                     draggable="true"
-                                    alt="Phone Icon"/>
+                                    alt="Phone Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            this.showPhoneModal();
+                                        }
+                                        }}/>
                                     <img id="dragDirect" src={direct} style={{width: 110, height: 110 , margin: 0}} 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "Direct")}}
                                     draggable="true"
-                                    alt="Direct Icon"/>
+                                    alt="Direct Icon"
+                                    onClick={(event) => {
+                                        if(true) { // Check if on mobile
+                                            this.showDirectModal();
+                                        }
+                                        }}/>
                                 </div>   
                             </div>            
                         </div>
