@@ -22,6 +22,13 @@ export function createUser(username, hash, salt){
         body: JSON.stringify({"username": username, "hash": hash, "salt": salt})});
 }
 
+export function getUserIDFromEmail(userEmail){
+    return fetch(`${api}/userList/${userEmail}`);
+}
+
+export function getUserSaltFromID(userID){
+    return fetch(`${api}/userList/${userID}`);
+}
 
 export function setUserID(id) {
     //console.log("setUserID: "+ id)

@@ -57,7 +57,13 @@ const UserLogin = (props) => {
         this.handleChange(user.id);
         let upass = document.getElementById("password").value;
         //get user with uname
+        let userID = infohandler.getUserIDFromEmail(email);
+        let userSalt = infohandler.getUserSaltFromID(userID);
+        console.log(userID);
+        console.log(userSalt);
+        //infohandler.getUserIDFromEmail -> router call get -> api call db -> db query 
         //get salt
+        //infohandler.getUserSalt(email, hash, salt);
         //hash
         //verify that hash matches
         //login
@@ -79,15 +85,11 @@ const UserLogin = (props) => {
                 <div class="UserLoginContainer">
                     <div class = "userSelect">
                         <img src={logo} alt="logo"></img>
-                        {/* <select class="userDropDown" id="selection" onChange={this.handleChange}> 
-                            <option>SELECT USER</option> 
-                            {this.state.userlist.map(user => (<option value={user.id} key={user.id}>{user.id}: {user.email}</option>))} 
-                        </select> */}
                         <h3>Email</h3>
                         <input class="usernameInput" id="username"> 
                         </input>
                         <h3>Password</h3>
-                        <input class="passwordInput" id="password">
+                        <input type="password" class="passwordInput" id="password">
                         </input>
                     </div>
                     <div class="redirectButtonContainer">

@@ -74,10 +74,7 @@ const UserRegister = (props) => {
         let upass = document.getElementById("password").value;
         let salt = await bcrypt.genSalt();
         let hash = await bcrypt.hash(upass, salt);
-        console.log(salt);
-        console.log(hash);
-        //Why is hash and salt not working?
-        infohandler.createUser(email, hash, salt); // replace function with (email, hash, salt). 
+        infohandler.createUser(email, hash, salt);
         // related functions in database-connection.js and informationHandler.mjs
 
         this.props.navigate("/");
@@ -91,15 +88,11 @@ const UserRegister = (props) => {
                 <div class="UserRegisterContainer">
                     <div class = "userSelect">
                         <img src={logo} alt="logo"></img>
-                        {/* <select class="userDropDown" id="selection" onChange={this.handleChange}> 
-                            <option>SELECT USER</option> 
-                            {this.state.userlist.map(user => (<option value={user.id} key={user.id}>{user.id}: {user.email}</option>))} 
-                        </select> */}
                         <h3>Email</h3>
                         <input class="usernameInput" id="username"> 
                         </input>
                         <h3>Password</h3>
-                        <input class="passwordInput" id="password">
+                        <input type="password" class="passwordInput" id="password">
                         </input>
                     </div>
                     <div class="redirectButtonContainer">

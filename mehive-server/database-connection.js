@@ -27,6 +27,32 @@ module.exports.getUsers = function() {
     }); 
 }
 
+module.exports.getIDForUser = function(email) {
+    return new Promise(function(resolve, reject) {
+        connection.query('CALL sp_GetUserID(?)', [email],
+        function (err, rows, fields) {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(rows[0])
+            }
+        });
+    }); 
+}
+
+module.exports.getSaltForUser = function(userID) {
+    return new Promise(function(resolve, reject) {
+        connection.query('CALL sp_GetUserSalt(?)', [userID],
+        function (err, rows, fields) {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(rows[0])
+            }
+        });
+    }); 
+}
+
 //only used for testing
 module.exports.createUser = function(email, hash, salt) {
     return new Promise(function(resolve, reject) {

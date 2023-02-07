@@ -13,6 +13,30 @@ router.get('/userlist', function(req, res, next) {
   })
 });
 
+/* get user ID */
+router.get('/userlist/:userEmail', function (req, res, next){
+  db.getIDForUser(req.params.userEmail)
+  .then(function(ID) {
+    res.send(JSON.stringify(ID));
+  })
+  .catch(function(err) {
+    res.statusCode = 500;
+    res.send();
+  })
+});
+
+/* get user salt */
+router.get('/userlist/:userID', function (req, res, next){
+  db.getSaltForUser(req.params.userID)
+  .then(function(salt) {
+    res.send(JSON.stringify(salt));
+  })
+  .catch(function(err) {
+    res.statusCode = 500;
+    res.send();
+  })
+});
+
 /* GET all contacts for a user. */
 router.get('/contactlist/:userid', function(req, res, next) {
 
