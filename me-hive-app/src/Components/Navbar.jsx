@@ -1,6 +1,6 @@
 import React from 'react';
 import './main.css';
-
+import './ComponentCSS/phone-main.css';
 import NavBarAdd from '../Assets/Home Screen Assets/Images/nav_add_selected@2x.png'
 import NavBarImport from '../Assets/Home Screen Assets/Images/nav_import_selected@2x.png'
 import NavBarContacts from '../Assets/Home Screen Assets/Images/nav_contacts_selected@2x.png'
@@ -31,7 +31,7 @@ class NavBarCore extends React.Component {
 		return (
 			<div className = "navBar">
 				<div class="meHiveToolBar">
-					<div class="meHiveLabel"><button onClick={()=>{this.props.navigate("/contacts", { state: { userId: id, contactId: contact_id}})}}><img class="LogoIcon" src={Logo} alt="Logo" style={{width: 175, height: 55 , margin: 0}}/></button></div>
+					<div class="meHiveLabel"><button onClick={()=>{this.props.navigate("/contacts", { state: { userId: id, contactId: contact_id}})}}><img class="LogoIcon" src={Logo} alt="Logo"/></button></div>
 					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/contacts", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarContacts} alt="navBarContacts"/> </button></div>
 					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/add", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarAdd} alt="navBarAdd"/></button></div>
 					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/auth", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarImport} alt="navBarImport"/></button></div>

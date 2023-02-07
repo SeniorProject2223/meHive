@@ -69,6 +69,14 @@ align-items: center;
     /* margin-bottom: 10px; */
 
 }
+
+@media (min-width: 1024px) {
+    .LogoIcon {
+        width: 175px;
+        height: 55px;
+    }
+}
+
 .mainContainer {
     display: grid;
     grid-template-rows: 1fr 2fr 4fr;

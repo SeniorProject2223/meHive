@@ -1,0 +1,187 @@
+@media (max-width: 1023px) {
+    .contactInfo{
+        background-color : white;
+        text-align: center;
+        flex-direction: column;
+    }
+    .credentials{
+        text-align: left;
+        margin-left: 20px;
+    }
+    .profilePic{
+        height: 100%;
+        width: 100%;
+    }
+    ul{
+        margin-top: 20px;
+        list-style-type: none;
+        /* list-style-position: inside; */
+        padding-left: 1.2em;
+        text-align: left;
+    }
+    .contactElements {
+        margin-bottom: 15px;
+    }
+    .contactGroups {
+        text-align: left;
+        margin-bottom: 10px;
+        /* padding-left: 1.2em; */
+    }
+    
+    
+    .meHiveToolBar {
+        background-color: rgb(224, 126, 62);
+        grid-area: top;
+        font-size: 2.5em;
+        padding-left: 10px; 
+    }
+    .allContactsBar{
+    grid-area: bottom;
+    background-color: rgb(240, 240, 240);
+    margin: auto;
+    font-size: 2.5em;
+    padding-left: 10px; 
+    display: flex;
+    height:100%;
+    align-items: center;
+    /* justify-content: center; */
+    }
+    .navBar{
+      flex-direction: column;
+      background-color: white;
+    }
+    .allContactsButton{
+        margin: 1em;
+        width: 100px;
+       /* position: absolute;
+       top: 50%;
+       transform: translateY(50%); */
+    }
+    .contactInfoButtons{
+        display: grid;
+        /* grid-template-rows: auto; */
+        row-gap: 10px;
+        justify-content: center;
+        margin-top: 50px;
+    
+    }
+    
+    .editContactButton, .deleteContactButton{
+        /* margin-bottom: 10px; */
+    
+    }
+    
+    .LogoIcon {
+        width: 125px;
+    }
+    
+    .mainContainer {
+        display: grid;
+        grid-template-rows: 1fr 2fr 4fr;
+        align-content: space-around;
+        margin-right: 20px;
+    
+    }
+    .interactionsContainer{
+        /* background-color: rgb(240, 240, 240); */
+        display: grid;
+        grid-template-columns: repeat(5, 0.5fr);
+    }
+    .interactionGridItem{
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        /* align-items: center; */
+    }
+    .interactionHistoryEntry{
+        /* background-color: rgb(240, 240, 240); */
+        display: grid;
+        /* grid-template-areas: "date desc desc desc details"; */
+        grid-template-columns: 0.2fr 1fr 0.2fr;
+        column-gap: 40px;
+        justify-content: start;
+        align-items: center;
+        height: 4em;
+        border-bottom: 5px solid;
+        border-color:rgb(240, 240, 240)
+    }
+    .interaction_history_details{
+        justify-self: center;
+        /* grid-area: details; */
+    } 
+    
+    .interaction_history_date{
+        justify-self: center;
+        /* padding-left: 20px; */
+        /* grid-area: date; */
+    } 
+    .interaction_history_description{
+        justify-self: flex-start;
+        /* grid-area: desc; */
+    }
+    .meHiveToolBar{
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 0.08fr);
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 7vh;
+    }
+    .navBarButton{
+        width: 1em;
+        height: 1em;
+    }
+    .navButton{
+        display: grid;
+        justify-content: center;
+        align-items: center;
+    }
+    .meHiveLabel{
+        padding-left: 20px;
+        color: white;
+        
+    }
+    .snoozeButton{
+        background-color: rgb(224, 126, 62);
+        color: white;
+        font-size: medium;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    .mainInfoContainer{
+        display:grid;
+        grid-template-columns: 1fr 0.5fr;
+    }
+    .snoozeContainer{
+        display: grid;
+        justify-content: end;
+        align-items: center;
+    
+    }
+    .contactName, .lastContactLabel{
+        margin: 2px
+    
+    }
+    .modal-footer{
+        display: grid;
+        grid-template-columns: 0.5fr 0.5fr;
+        justify-content: center;
+        column-gap: 30px;
+    }
+    .vsOKButton, .vsCancelSnoozeButton{
+        background-color: rgb(224, 126, 62);
+        color: white;
+        font-size: medium;
+        padding: 5px;
+        border-radius: 6px;
+    }
+    .snoozedButton{
+        background-color: rgb(244, 100, 4);
+        color: white;
+        font-size: medium;
+        padding: 5px;
+        border-radius: 6px;
+    }    
+}

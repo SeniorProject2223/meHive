@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css';
+import './PhoneApp.css';
 import NavBar from './Components/Navbar';
 import logo from './Assets/2015-09-meHive-launch.png'
 import { useNavigate } from 'react-router-dom';
