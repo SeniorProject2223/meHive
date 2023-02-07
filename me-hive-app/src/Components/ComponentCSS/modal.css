@@ -9,11 +9,25 @@ display: flex;
 align-items: center;
 justify-content:center;
 }
+
 .modal-content{
     width: 500px;
     background-color: #fff;
-
 }
+
+@media (max-width: 1024px) {
+    .modal-content {
+        width: 50vh;
+        height: 50vh;
+        overflow-y: scroll;
+    }
+    .directionField {
+        display: grid;
+        grid-template-columns: 0.1fr 1fr;
+        grid-column-gap: 1em;
+    }
+}
+
 .modal-header{
     padding: 10px;
     display: grid;
@@ -21,16 +35,19 @@ justify-content:center;
     justify-content: center;
     align-items: center;
 }
+
 .modal-footer{
     padding: 10px;
     display: grid;
 }
+
 .modal-title{
     margin: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 .modal-body{
   padding: 10px;
   border-top: 1px solid #eee;
@@ -42,17 +59,20 @@ justify-content:center;
   justify-content: right;
   align-items: center;
 }
+
 .modalCloseButton, .modalSaveButton{
     border-radius: 8px;
     border: 0.5px solid gray;
     padding: 5px;
 }
+
 .modalDeleteButton{
     border-radius: 8px;
     border: 0.5px solid red;
     padding: 5px;
     color: red;
 }
+
 .interactNotes{
     width: 400x;
     height: 100px;
