@@ -605,7 +605,7 @@ class ContactListPageCore extends React.Component{
                                 this.getContactList();
                             }}
                             onDragOver={(event)=>{event.preventDefault()}}>
-                                <img id="DeleteContactRow" src={DeleteRow} />
+                                Delete
                             </div>
                             :
                             <div></div>

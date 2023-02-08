@@ -272,7 +272,12 @@ padding-bottom: 10px;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 80px;
+  bottom: 5px;
+  background-color: #ff3939;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  width: 50vh;
 }
 
 
