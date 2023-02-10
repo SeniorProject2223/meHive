@@ -25,11 +25,11 @@ router.get('/userlist/:userEmail', function (req, res, next){
   })
 });
 
-/* get user salt */
+/* get user login */
 router.get('/userlist/:userID', function (req, res, next){
-  db.getSaltForUser(req.params.userID)
-  .then(function(salt) {
-    res.send(JSON.stringify(salt));
+  db.getLoginForUser(req.params.userID)
+  .then(function(login) {
+    res.send(JSON.stringify(login));
   })
   .catch(function(err) {
     res.statusCode = 500;

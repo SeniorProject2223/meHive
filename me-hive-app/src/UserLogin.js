@@ -51,21 +51,25 @@ const UserLogin = (props) => {
         return currentUser;
     }
 
-    handleGetUser(){
+    async handleGetUser(){
         let email = document.getElementById("username").value;
         let user = this.handleUserLookup(email);
         this.handleChange(user.id);
         let upass = document.getElementById("password").value;
         //get user with uname
-        let userID = infohandler.getUserIDFromEmail(email);
-        let userSalt = infohandler.getUserSaltFromID(userID);
+        const userIDResponse = await infohandler.getUserIDFromEmail(email);
+        const userIDData = await userIDResponse.json();
+        const userID = userIDData[0].id;
+        const userLoginInfoResponse = await infohandler.getUserLoginFromID(userID);
+        const userLoginInfoData = await userLoginInfoResponse.json();
+        console.log(userLoginInfoData);
+        const userHash = userLoginInfoData[0].hash;
+        const userSalt = userLoginInfoData[0].salt;
         console.log(userID);
+        console.log(userHash);
         console.log(userSalt);
         //infohandler.getUserIDFromEmail -> router call get -> api call db -> db query 
-        //get salt
-        //infohandler.getUserSalt(email, hash, salt);
-        //hash
-        //verify that hash matches
+        //hashing vertification
         //login
         this.props.navigate("/contacts", { state: { userId: user.id}});
         

@@ -40,9 +40,9 @@ module.exports.getIDForUser = function(email) {
     }); 
 }
 
-module.exports.getSaltForUser = function(userID) {
+module.exports.getLoginForUser = function(userID) {
     return new Promise(function(resolve, reject) {
-        connection.query('CALL sp_GetUserSalt(?)', [userID],
+        connection.query('CALL sp_GetUserLogin(?)', [userID],
         function (err, rows, fields) {
             if(err) {
                 reject(err);

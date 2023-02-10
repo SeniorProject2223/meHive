@@ -26,7 +26,7 @@ export function getUserIDFromEmail(userEmail){
     return fetch(`${api}/userList/${userEmail}`);
 }
 
-export function getUserSaltFromID(userID){
+export function getUserLoginFromID(userID){
     return fetch(`${api}/userList/${userID}`);
 }
 
