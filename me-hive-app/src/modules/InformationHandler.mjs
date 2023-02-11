@@ -27,7 +27,7 @@ export function getUserIDFromEmail(userEmail){
 }
 
 export function getUserLoginFromID(userID){
-    return fetch(`${api}/userList/${userID}`);
+    return fetch(`${api}/userlogin/${userID}`);
 }
 
 export function setUserID(id) {

@@ -15,6 +15,7 @@ router.get('/userlist', function(req, res, next) {
 
 /* get user ID */
 router.get('/userlist/:userEmail', function (req, res, next){
+  console.log('User Email', req.params.userEmail);
   db.getIDForUser(req.params.userEmail)
   .then(function(ID) {
     res.send(JSON.stringify(ID));
@@ -26,7 +27,7 @@ router.get('/userlist/:userEmail', function (req, res, next){
 });
 
 /* get user login */
-router.get('/userlist/:userID', function (req, res, next){
+router.get('/userlogin/:userID', function (req, res, next){
   db.getLoginForUser(req.params.userID)
   .then(function(login) {
     res.send(JSON.stringify(login));
