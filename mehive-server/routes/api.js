@@ -13,6 +13,31 @@ router.get('/userlist', function(req, res, next) {
   })
 });
 
+/* get user ID */
+router.get('/userlist/:userEmail', function (req, res, next){
+  console.log('User Email', req.params.userEmail);
+  db.getIDForUser(req.params.userEmail)
+  .then(function(ID) {
+    res.send(JSON.stringify(ID));
+  })
+  .catch(function(err) {
+    res.statusCode = 500;
+    res.send();
+  })
+});
+
+/* get user login */
+router.get('/userlogin/:userID', function (req, res, next){
+  db.getLoginForUser(req.params.userID)
+  .then(function(login) {
+    res.send(JSON.stringify(login));
+  })
+  .catch(function(err) {
+    res.statusCode = 500;
+    res.send();
+  })
+});
+
 /* GET all contacts for a user. */
 router.get('/contactlist/:userid', function(req, res, next) {
 
@@ -218,6 +243,18 @@ router.put('/editgroup/:userid/:groupid', function(req, res, next) {
     res.send();
   })
 });
+
+/* POST User */
+router.post('/createUser', function(req, res, next) {
+  db.createUser(req.body.username, req.body.hash, req.body.salt).then(function(results) {
+    res.send();
+  }).catch(function(err) {
+    console.log(err);
+    res.statusCode = 500;
+    res.send();
+  })
+});
+
 
 /* DELETE group */
 router.delete('/deletegroup/:userid/:groupid', function(req, res, next) {

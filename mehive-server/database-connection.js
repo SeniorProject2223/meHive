@@ -27,10 +27,36 @@ module.exports.getUsers = function() {
     }); 
 }
 
-//only used for testing
-module.exports.createUser = function(email) {
+module.exports.getIDForUser = function(email) {
     return new Promise(function(resolve, reject) {
-        connection.query('CALL sp_CreateUser(?, ?, ?)', [email, "DUMMY_HASH", "DUMMY_SALT"],
+        connection.query('CALL sp_GetUserID(?)', [email],
+        function (err, rows, fields) {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(rows[0])
+            }
+        });
+    }); 
+}
+
+module.exports.getLoginForUser = function(userID) {
+    return new Promise(function(resolve, reject) {
+        connection.query('CALL sp_GetUserLogin(?)', [userID],
+        function (err, rows, fields) {
+            if(err) {
+                reject(err);
+            } else {
+                resolve(rows[0])
+            }
+        });
+    }); 
+}
+
+//only used for testing
+module.exports.createUser = function(email, hash, salt) {
+    return new Promise(function(resolve, reject) {
+        connection.query('CALL sp_CreateUser(?, ?, ?)', [email, hash, salt],
         function (err, rows, fields) {
             if (err) {
                 reject(err);
