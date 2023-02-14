@@ -82,7 +82,7 @@ const UserLogin = (props) => {
             return (
                 <div class="UserLoginContainer">
                     <div class = "userSelect">
-                        <img src={logo} alt="logo"></img>
+                        <img src={logo} alt="logo" width='100%' height='200%'></img>
                         <h3>Email</h3>
                         <input class="usernameInput" id="username"> 
                         </input>
