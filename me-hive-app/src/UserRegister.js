@@ -22,7 +22,6 @@ const UserRegister = (props) => {
             selection: null
         };
         this.handleChange = this.handleChange.bind(this);
-        this.handleGetUser = this.handleGetUser.bind(this);
         this.handleUserLookup = this.handleUserLookup.bind(this);
     }
 
@@ -51,33 +50,24 @@ const UserRegister = (props) => {
         return currentUser;
     }
 
-    handleGetUser(){
-        let email = document.getElementById("username").value;
-        let user = this.handleUserLookup(email);
-        this.handleChange(user.id);
-        let upass = document.getElementById("password").value;
-
-        
-        //get user with uname
-        //get salt
-        //hash
-        //verify that hash matches
-        //login
-        this.props.navigate("/contacts", { state: { userId: user.id}});
-        
-        //this.props.navigate("/contacts", { state: { userId: this.state.selection}})
-        
+    displayReigisterError(){
+        console.log("registration failed");
+        document.getElementsByClassName("errorMessage")[0].innerHTML = "Invalid Registration";
     }
 
     async registerUser() {
         let email = document.getElementById("username").value;
         let upass = document.getElementById("password").value;
-        let salt = await bcrypt.genSalt();
-        let hash = await bcrypt.hash(upass, salt);
-        infohandler.createUser(email, hash, salt);
-        // related functions in database-connection.js and informationHandler.mjs
-
-        this.props.navigate("/");
+        const userIDResponse = await infohandler.getUserIDFromEmail(email);
+        const userIDData = await userIDResponse.json();
+        if(userIDData.length == 0 ){
+            let salt = await bcrypt.genSalt();
+            let hash = await bcrypt.hash(upass, salt);
+            infohandler.createUser(email, hash, salt);
+            this.props.navigate("/");
+        } else{
+            this.displayReigisterError();
+        }
     }
 
     render() {
@@ -100,6 +90,9 @@ const UserRegister = (props) => {
                     </div>
                     <div class="redirectButtonContainer">
                         <button class="redirectButton" onClick = {()=>{this.props.navigate("/")}}> Return to Login</button>
+                    </div>
+                    <div class="redirectButtonContainer">
+                        <h3 class="errorMessage"></h3>
                     </div>
                 </div>
             );
