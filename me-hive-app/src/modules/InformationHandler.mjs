@@ -15,6 +15,20 @@ export function getUserList(){
     return fetch(`${api}/userlist`)
 }
 
+export function createUser(username, hash, salt){
+    return fetch(`${api}/createUser`,{
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({"username": username, "hash": hash, "salt": salt})});
+}
+
+export function getUserIDFromEmail(userEmail){
+    return fetch(`${api}/userList/${userEmail}`);
+}
+
+export function getUserLoginFromID(userID){
+    return fetch(`${api}/userlogin/${userID}`);
+}
 
 export function setUserID(id) {
     //console.log("setUserID: "+ id)
