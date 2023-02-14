@@ -69,6 +69,14 @@ align-items: center;
     /* margin-bottom: 10px; */
 
 }
+
+@media (min-width: 1024px) {
+    .LogoIcon {
+        width: 175px;
+        height: 55px;
+    }
+}
+
 .mainContainer {
     display: grid;
     grid-template-rows: 1fr 2fr 4fr;
@@ -86,6 +94,11 @@ align-items: center;
     justify-content: center;
     text-align: center;
     /* align-items: center; */
+}
+.profileInteractionIcon {
+    width: 125px; 
+    height: 125px; 
+    margin: 0;
 }
 .interactionHistoryEntry{
     /* background-color: rgb(240, 240, 240); */
@@ -177,7 +190,5 @@ height: 7vh;
     font-size: medium;
     padding: 5px;
     border-radius: 6px;
-
-
 }
 

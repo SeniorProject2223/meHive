@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css';
+import './PhoneApp.css';
 import NavBar from './Components/Navbar';
 import largeGroup from './Assets/View Contact Assets/Images/btn_int_lg_group@2x.png';
 import smallGroup from './Assets/View Contact Assets/Images/btn_int_sm_group@2x.png';
@@ -446,7 +447,7 @@ class ContactListPageCore extends React.Component{
                                         <option value="CompanyASC">Company (A-Z)</option>
                                         <option value="CompanyDSC">Company (Z-A)</option>
                                     </select>
-                                    <input className = "searchBar"  type="text" placeholder="Search for Contact" onChange={this.filterWithSearch}/>
+                                    <input className = "searchBar"  type="text" placeholder="Search" onChange={this.filterWithSearch}/>
                                 </div> 
                            
                             <div className='contactListScroll'>
@@ -604,7 +605,7 @@ class ContactListPageCore extends React.Component{
                                 this.getContactList();
                             }}
                             onDragOver={(event)=>{event.preventDefault()}}>
-                                <img id="DeleteContactRow" src={DeleteRow} />
+                                Delete
                             </div>
                             :
                             <div></div>
@@ -626,9 +627,11 @@ class ContactListPageCore extends React.Component{
                             <DeleteGroupModal ref={this.deleteGroupModal} show={this.state.activeModal === "deleteGroup"} onClose={this.hideContactModal}></DeleteGroupModal>     
                         </div>
                         <div className="interactions"> 
-                            <h2>INTERACTIONS</h2>
+                            <div id="interactions-header">
+                                <h2>INTERACTIONS</h2>
+                            </div>
                                 <div className="contactListPageInteractionsColumn">
-                                    <img id="dragLargeGroup" src={largeGroup} style={{width: 110, height: 110 , margin: 0}} 
+                                    <img id="dragLargeGroup" src={largeGroup} width='100%' height='100%'
                                     onDragStart={(event)=>{
                                         event.dataTransfer.setData("text", "LargeGroup");
                                     }}
@@ -639,7 +642,7 @@ class ContactListPageCore extends React.Component{
                                             this.showLargeGroupModal();
                                         }
                                         }}/>
-                                    <img id="dragSmallGroup" src={smallGroup} style={{width: 110, height: 110 , margin: 0}} 
+                                    <img id="dragSmallGroup" src={smallGroup} width='100%' height='100%'
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "SmallGroup")}}
                                     draggable="true"
                                     alt="Small Group Icon"
@@ -648,7 +651,7 @@ class ContactListPageCore extends React.Component{
                                             this.showSmallGroupModal();
                                         }
                                         }}/>
-                                    <img id="dragEmail" src={email_social} style={{width: 110, height: 110 , margin: 0}} 
+                                    <img id="dragEmail" src={email_social} width='100%' height='100%' 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "EmailSocial")}}
                                     draggable="true"
                                     alt="Email Icon"
@@ -657,7 +660,7 @@ class ContactListPageCore extends React.Component{
                                             this.showEmailSocialModal();
                                         }
                                         }}/>
-                                    <img id="dragPhone" src={phone} style={{width: 110, height: 110 , margin: 0}} 
+                                    <img id="dragPhone" src={phone} width='100%' height='100%'
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "Phone")}}
                                     draggable="true"
                                     alt="Phone Icon"
@@ -666,7 +669,7 @@ class ContactListPageCore extends React.Component{
                                             this.showPhoneModal();
                                         }
                                         }}/>
-                                    <img id="dragDirect" src={direct} style={{width: 110, height: 110 , margin: 0}} 
+                                    <img id="dragDirect" src={direct} width='100%' height='100%' 
                                     onDragStart={(event)=>{event.dataTransfer.setData("text", "Direct")}}
                                     draggable="true"
                                     alt="Direct Icon"

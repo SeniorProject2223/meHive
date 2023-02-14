@@ -1,3 +1,5 @@
+@media (max-width: 1023px){
+
 .App {
   text-align: center;
 }
@@ -38,37 +40,20 @@
     transform: rotate(360deg);
   }
 }
-
 .groups {
   padding-left: 10px;
   padding-right: 10px;
-  width: 30%;
-  height: 100vh;
+  height: 90vh;
+  width: 100%;
+  font-size: 0.5rem;
   text-align: center;
-  font-size: .75em;
   color: #5f5f5f;
-  background-color: #13bd0d;
+  background-color: #ece9e9;
   float: left;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
-@media only screen and (min-width: 1024px){
-  .groups {
-    padding-left: 10px;
-    padding-right: 10px;
-    width: 250px;
-    height: 90vh;
-    text-align: center;
-    font-size: 1em;
-    color: #5f5f5f;
-    background-color: #ece9e9;
-    float: left;
-    overflow-x: hidden;
-    overflow-y: scroll;
-  }
-}
- 
 .groupsDisplay{
   display: flex;
   flex-direction: column;
@@ -82,10 +67,10 @@
 .groupEntry{
   outline-style: dotted;
   outline-color: rgb(224, 126, 62);
-  width: 8em;
+  width: 5em;
   height: 4em;
-  padding: 0.5em 1.5em;
-  margin-left: 0.75em;
+  padding: 0.25rem 0.5rem;
+  margin-left: 0.25em;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -93,16 +78,8 @@
 
 .contactListPage {
   display: flex;
-  /* justify-content: space-between; */
-  height: 100vh;
-}
-
-@media only screen and (min-width: 1024px){
-  .contactListPage {
-    display: flex;
-    justify-content: space-between;
-    height: 90vh;
-  }
+  justify-content: space-between;
+  height: 90vh;
 }
 
 .loading{
@@ -115,13 +92,6 @@
 }
 
 #group-header{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-#interactions-header{
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -168,60 +138,33 @@
 
 .allContacts {
   color: #5f5f5f;
-  width: 75%;
-  height: 100vh;
-  /* padding-left: 20px; */
-  /* padding-right: 20px; */
-  background-color: #fff;
+  width: 150vh;
+  height: 90vh;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #ffffff;
   display: inline-block;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .interactions {
-
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 33%;
-  height: 100vh;
   text-align: center;
-  font-size: 12pt;
+  font-size: 0.5em;
+  width: 50%;
+  height: 90vh;
   color: #5f5f5f;
-  background-color: #13bd0d;
-
-  /* padding-left: 10px;
-  padding-right: 10px;
-  width: 33%;
-  height: 100vh;
-  text-align: center;
-  font-size: .5em;
-  color: #5f5f5f;
-  background-color: #13bd0d;
-  float: left;
-  overflow-x: hidden;
-  overflow-y: scroll; */
+  background-color: #ece9e9;
 }
 
-@media only screen and (min-width: 1024px){
-  .interactions {
-    text-align: center;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    width: 250px;
-    height: 90vh;
-    color: #5f5f5f;
-    background-color: #ece9e9;
-  }
-}
 .contactListPageInteractionsColumn{
   margin: 20px;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 }
-
 .contactListPageInteractionsColumn > img{
 padding-bottom: 10px;
 
@@ -230,23 +173,20 @@ padding-bottom: 10px;
 .grid-container {
   display: grid;
   position: relative;
-  grid-template-columns:repeat(3, 1fr);
-  grid-gap: 2em 0em;
-  grid-auto-rows: 200px;
-  grid-auto-columns: 100px;
+  grid-template-columns:repeat(1, 1fr);
+  grid-gap: 1em 0;
+  grid-auto-rows: auto;
 }
 
 .grid-item{
   display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
 
 .gridText{
   color: black;
   text-align: center;
-  margin-top: 140px;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -255,11 +195,13 @@ padding-bottom: 10px;
 }
 
 .gridProfilePic{
-  background-image: url('./Assets/Home Screen Assets/Images/default_contact@2x.png');
+  background-image: url('./Assets/Home Screen Assets/Images/default_contact.png');
   background-size: cover;
   background-position: center;
-  min-height: 100%;
+  min-height: 70%;
   min-width: 70%;
+  width: 25vh;
+  height: 25vh;
 }
 
 .profileContainer{
@@ -272,10 +214,6 @@ padding-bottom: 10px;
     "navBar navBar"
     "contactInfo main"
     "contactInfo main"
-}
-
-.errorMessage{
-  color: red;
 }
 
 .dot {
@@ -296,43 +234,34 @@ padding-bottom: 10px;
 
 .searchBarContainer{
   display: grid;
-  grid-template-columns: 0.1fr 0.1fr 0.1fr 0.1fr 0.5fr;
-  column-gap: 10px;
+  grid-template-columns: 0.5fr 0.5fr;
+  column-gap: 5px;
+  row-gap: 2px;
   justify-content: center;
   align-items:center;
-  padding-top: 20px;
-  padding-bottom: 0px;
+  padding-top: 10px;
 }
 
 .sortByLabel{
   text-align: center;
-  font-size: 14px;
+  font-size: 0.75em;
 }
 .searchBar{
   height: 100%;
   margin-left: 20px;
   padding-left: 10px;
+  width: 100%;
 }
 
 .allContactsGrid{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-@media only screen and (min-width: 1024px){
-  .allContactsGrid{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    padding-left: 50px;
-    padding-right: 50px;
-  }
 }
 
 .allContactsHeader{
   display: flex;
   justify-content: left;
+  font-size: 0.5em;
 }
 
 .multiSelectButtonContainer {
@@ -343,7 +272,12 @@ padding-bottom: 10px;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);
-  bottom: 80px;
+  bottom: 5px;
+  background-color: #ff3939;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  width: 50vh;
 }
 
 
@@ -501,4 +435,6 @@ button {
   background-color: rgb(224, 126, 62);
   padding: 8px;
   margin-left: 20px;
+}
+
 }

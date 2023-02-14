@@ -144,11 +144,11 @@ class Main extends React.Component {
                 <div>
                     <h3>DID YOU CONTACT {f_name}?</h3>
                     <div   class="interactionsContainer"> 
-                        <div class = "interactionGridItem"  onClick = { this.showLargeGroupModal} ><img src={largeGroup} style={{width: 125, height: 125 , margin: 0}} alt="Large Group Icon"/></div>
-                        <div class = "interactionGridItem"  onClick = { this.showEmailSocialModal}> <img src={email_social} style={{width: 125, height: 125 , margin: 0}} alt="Large Group Icon"/></div>
-                        <div class = "interactionGridItem" onClick = { this.showSmallGroupModal}> <img src={smallGroup} style={{width: 125, height: 125 , margin: 0}} alt="Large Group Icon"/> </div>
-                        <div class = "interactionGridItem" onClick = { this.showPhoneModal}> <img src={phone} style={{width: 125, height: 125 , margin: 0}} alt="Large Group Icon"/></div>
-                        <div class = "interactionGridItem" onClick = { this.showDirectModal}> <img src={direct} style={{width: 125, height: 125 , margin: 0}} alt="Large Group Icon"/></div>
+                        <div class = "interactionGridItem"  onClick = { this.showLargeGroupModal} ><img class="profileInteractionIcon" src={largeGroup} alt="Large Group Icon"/></div>
+                        <div class = "interactionGridItem"  onClick = { this.showEmailSocialModal}> <img class="profileInteractionIcon" src={email_social} alt="Email Social Icon"/></div>
+                        <div class = "interactionGridItem" onClick = { this.showSmallGroupModal}> <img class="profileInteractionIcon" src={smallGroup} alt="Small Group Icon"/> </div>
+                        <div class = "interactionGridItem" onClick = { this.showPhoneModal}> <img class="profileInteractionIcon" src={phone} alt="Phone Icon"/></div>
+                        <div class = "interactionGridItem" onClick = { this.showDirectModal}> <img class="profileInteractionIcon" src={direct} alt="Direct Icon"/></div>
                         
                         <Modal show={this.state.activeModal === 'largeGroup'} onClose={this.hideModal}  interactionType={1} fName={f_name} lName={l_name} userID = {this.props.contact.owner_id} contactID = {this.props.contact.id} mode='add'/>
                         <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={f_name} lName={l_name} userID = {this.props.contact.owner_id} contactID = {this.props.contact.id} mode='add'/>
