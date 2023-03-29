@@ -9,10 +9,15 @@ module.exports.getCode = function(username, password, securityToken) {
       resolve(salesforceConfig.DUMMY_CODE)
     })
   }
-  return axios.post(`https://d80000000dlhieaq--cssetracy.my.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9EMJF5MdlzDpJfnGI7n1VPlx.ZmLvK9FKdUdxyTTub6AsXRTVLA.pHHNnQNX_Pu9bJa2wt3sYZaGtTxyk&client_secret=B1C435D48739C4F2AD5C2623B498E3FE39B25CD1BF9015F13633E7EC944079D6&username=${username}&password=${password}${securityToken}&format=json`);
+  let config = {
+    headers: {
+      Authorization: `Bearer ${securityToken}`
+    }
+  }
+  return axios.get(`https://power-java-4757.my.salesforce.com/services/data/v57.0/query?q=SELECT+name+from+Account`, config); //axios.post(`https://power-java-4757.my.salesforce.com/services/oauth2/token?grant_type=password&client_id=3MVG9EMJF5MdlzDpJfnGI7n1VPlx.ZmLvK9FKdUdxyTTub6AsXRTVLA.pHHNnQNX_Pu9bJa2wt3sYZaGtTxyk&client_secret=B1C435D48739C4F2AD5C2623B498E3FE39B25CD1BF9015F13633E7EC944079D6&username=${username}&password=${password}${securityToken}&format=json`);
 }
 
-module.exports.getFirstContact = function(accessToken) {
+module.exports.getFirstContact = function(accessToken, url) {
   if(salesforceConfig.USE_DUMMY_CONNECTION){
     return new Promise((resolve, reject) => {
       resolve(salesforceConfig.DUMMY_FIRST_CONTACT)
@@ -23,7 +28,7 @@ module.exports.getFirstContact = function(accessToken) {
       Authorization: `Bearer ${accessToken}`
     }
   }
-  return axios.get(`https://d80000000dlhieaq--cssetracy.my.salesforce.com/services/data/v54.0/query/?q=SELECT FIELDS(ALL) FROM Contact LIMIT 1`, config);
+  return axios.get(`https://power-java-4757.my.salesforce.com/${url}/Contacts`, config);
 }
 
 module.exports.importContacts = function(accessToken, userID, mapping) {
@@ -129,7 +134,7 @@ module.exports.importContacts = function(accessToken, userID, mapping) {
       }
     })
   }
-  return axios.get(`https://d80000000dlhieaq--cssetracy.my.salesforce.com/services/data/v54.0/query/?q=SELECT FIELDS(ALL) FROM Contact LIMIT 200`, config)
+  return axios.get(`https://power-java-4757.my.salesforce.com/services/data/v57.0/Account/${accountID}/Contacts`, config)
   .then(response => {
     console.log(userID);
     let contacts = response.data.records;

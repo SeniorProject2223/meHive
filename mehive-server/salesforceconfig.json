@@ -1,5 +1,5 @@
 {
-    "USE_DUMMY_CONNECTION": true,
+    "USE_DUMMY_CONNECTION": false,
     "DUMMY_CODE": {"data": {
             "access_token": "DUMMY DATA. DOES NOT MATCH ACTUAL SALESFORCE VALUE"
     }},
