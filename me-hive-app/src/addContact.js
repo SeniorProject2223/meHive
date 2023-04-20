@@ -259,8 +259,8 @@ class AddContactCore extends React.Component {
                     <label for="status">Status</label>
                     <input type="range" id="status" name="status" min="0.0" max="1.0" step='0.01' onChange={evt => this.updateStatus(evt)}/>
                     <div class="slider-label">
-                        <span>I am weaker</span>
-                        <span>I am stronger</span>
+                        <span>I am a subordinate</span>
+                        <span>They are a subordinate</span>
                     </div>
                 </span>
                 <span class="slider">
