@@ -282,11 +282,21 @@ router.delete('/groupremovecontact/:userid/:groupid', function(req, res, next) {
 router.get('/salesforcemapping/:username/:password/:securitytoken', function(req, res, next) {
   sf.getCode(req.params.username, req.params.password, req.params.securitytoken).then(function(results){
     //let accessToken = results.data.access_token
-    sf.getFirstContact(req.params.securitytoken, results.data.records[0].attributes.url).then((results) => {
+    console.log('Results: ', results);
+    if (results.data.records) {
+      sf.getFirstContact(req.params.securitytoken, results.data.records[0].attributes.url).then((results) => {
       let records = results.data.records;
       console.log(records);
       res.send({mapping: records});
     });
+    } else {
+      sf.getFirstContact(req.params.securitytoken, results).then((results) => {
+        let records = results.data.records;
+        console.log(records);
+        res.send({mapping: records});
+      })
+    }
+    
   })
   .catch(function(err) {
     console.log(err);
