@@ -12,7 +12,7 @@ export default class Modal extends React.Component {
     this.resetInteraction()
     this.state = {
       users: props.groupContacts,
-      contactID: !!props.contactID ? props.contactID : props.groupContacts[0].id
+      contactID: !!props.contactID ? props.contactID : (!props.groupContacts[0] ? null : props.groupContacts[0].id)
     };
   }
 

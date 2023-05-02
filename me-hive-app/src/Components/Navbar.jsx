@@ -5,6 +5,7 @@ import NavBarAdd from '../Assets/Home Screen Assets/Images/nav_add_selected@2x.p
 import NavBarImport from '../Assets/Home Screen Assets/Images/nav_import_selected@2x.png'
 import NavBarContacts from '../Assets/Home Screen Assets/Images/nav_contacts_selected@2x.png'
 import NavBarSettings from '../Assets/Home Screen Assets/Images/nav_settings_selected@2x.png'
+import NavBarLogout from '../Assets/Home Screen Assets/Images/nav_logout.png'
 import Logo from '../Assets/Home Screen Assets/Images/mehive_logo.png'
 import { useNavigate } from 'react-router-dom'
 import { useLocation } from 'react-router-dom'
@@ -35,7 +36,7 @@ class NavBarCore extends React.Component {
 					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/contacts", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarContacts} alt="navBarContacts"/> </button></div>
 					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/add", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarAdd} alt="navBarAdd"/></button></div>
 					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/auth", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarImport} alt="navBarImport"/></button></div>
-					{/* <div class= "navButton"> <button onClick={()=>{this.props.navigate("/profile", { state: { userId: id, contactId: contact_id}})}}><img class= "navBarButton" src={NavBarImport} alt="navBarProfile"/></button></div> */}
+					<div class= "navButton"> <button onClick={()=>{this.props.navigate("/", { state: { userId: null, contactId: null}})}}><img class= "navBarButton" src={NavBarLogout} alt="navBarSettings"/></button> </div>
 					<div class= "navButton"> <img class= "navBarButton" src={NavBarSettings} alt="navBarAdd"/> </div>
 				</div>
 			</div>

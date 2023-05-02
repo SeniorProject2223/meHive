@@ -281,16 +281,29 @@ router.delete('/groupremovecontact/:userid/:groupid', function(req, res, next) {
 /* GET inital Salesforce mapping */
 router.get('/salesforcemapping/:username/:password/:securitytoken', function(req, res, next) {
   sf.getCode(req.params.username, req.params.password, req.params.securitytoken).then(function(results){
-    let accessToken = results.data.access_token
-    sf.getFirstContact(accessToken).then((results) => {
-      let records = results.data.records
-      res.send({token: accessToken, mapping: records});
-    })
-  }).catch(function(err) {
+    //let accessToken = results.data.access_token
+    console.log('Results: ', results);
+    if (results.data.records) {
+      sf.getFirstContact(req.params.securitytoken, results.data.records[0].attributes.url).then((results) => {
+      let records = results.data.records;
+      console.log(records);
+      res.send({mapping: records});
+    });
+    } else {
+      sf.getFirstContact(req.params.securitytoken, results).then((results) => {
+        let records = results.data.records;
+        console.log(records);
+        res.send({mapping: records});
+      })
+    }
+    
+  })
+  .catch(function(err) {
     console.log(err);
     res.statusCode = 500;
     res.send();
   })
+  
 });
 
 /* POST import contacts from Salesforce */

@@ -90,9 +90,10 @@ class SalesforceImportCore extends React.Component{
         infohandler.getFirstSalesforceContact(credential.username, credential.password, credential.securityToken)
         .then(response => response.json())
         .then(data => {
-            this.setState({accessToken: data.token})
-            this.populateSelects(Object.keys(data.mapping["0"]));
-        })
+            console.log(typeof data);
+            this.setState({accessToken: credential.securityToken})
+            this.populateSelects(Object.keys(data.mapping[0]));
+        });
     }
 
     populateSelects(options){
@@ -101,7 +102,8 @@ class SalesforceImportCore extends React.Component{
             let newOption = {value: options[i], label: options[i]}
             selectFields.push(newOption)
         }
-        this.setState({mappingOptions: selectFields, loading: false})
+        this.setState({mappingOptions: selectFields, loading: false});
+        console.log("Setting fields and stopping load");
     }
 
     importContactsAndInteractions(){;
@@ -113,7 +115,7 @@ class SalesforceImportCore extends React.Component{
 
     render(){
         if(this.state.loading) {
-            this.getMappingOptions()
+            this.getMappingOptions();
             return ( <div>loading....</div>);
         }else{
             return  <div id="component-body">

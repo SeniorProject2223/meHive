@@ -474,8 +474,8 @@ class ContactListPageCore extends React.Component{
                                     </div>
                                 </div>
                                 <div class="grid-container">
-                                    {contacts.filter((contact) => 
-                                    {return contact.f_name.toString().toLowerCase().includes(searchTerm.toString().toLowerCase()) || contact.l_name.toString().toLowerCase().includes(searchTerm.toString().toLowerCase())  }).map(contact => (   
+                                    {contacts.filter((contact1) => 
+                                    {return contact1.f_name.toString().toLowerCase().includes(searchTerm.toString().toLowerCase()) || contact1.l_name.toString().toLowerCase().includes(searchTerm.toString().toLowerCase())  }).map(contact => (   
 
 
                                     <div id="contacts-list" class="grid-item"
@@ -610,9 +610,9 @@ class ContactListPageCore extends React.Component{
                             :
                             <div></div>
                             }        
-                            <Modal show={activeModal === 'largeGroup'} onClose={this.hideModal} interactionType={1} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
-                            <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
-                            <Modal show={this.state.activeModal === 'phone'} onClose={this.hideModal} interactionType={4} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={activeModal === 'largeGroup'} onClose={this.hideModal} interactionType={1} fName={this.state.contact_fname} lName={this.state.contact_lname} userID={id} contactID={this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'smallGroup'} onClose={this.hideModal} interactionType={3} fName={this.state.contact_fname} lName={this.state.contact_lname} userID={id} contactID={this.state.contact_id} mode='add' groupContacts={this.state.groupContacts}/>
+                            <Modal show={this.state.activeModal === 'phone'} onClose={this.hideModal} interactionType={4} fName={this.state.contact_fname} lName={this.state.contact_lname} userID={id} contactID={this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
                             <Modal show={this.state.activeModal === 'emailSocial'}  onClose={this.hideModal} interactionType={2} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
                             <Modal show={this.state.activeModal === 'direct'} onClose={this.hideModal} interactionType={5} fName={this.state.contact_fname} lName={this.state.contact_lname} userID = {id} contactID = {this.state.contact_id}  mode='add' groupContacts={this.state.groupContacts}/>
 
