@@ -198,7 +198,7 @@ export default class Modal extends React.Component {
             <button onClick={evt => this.saveInteraction()} className="modalSaveButton">Save</button>
             </div>
             <div className="modal-body">
-              <div>Nothing Broski:</div>
+              <div>Contact: </div>
               <select value={this.state.contactID} onChange={(event) => {
                 this.setState({contactID: event.target.selectedOptions[0].value});
               }}>
