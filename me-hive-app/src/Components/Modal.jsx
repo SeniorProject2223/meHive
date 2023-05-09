@@ -48,7 +48,7 @@ export default class Modal extends React.Component {
 
   createInteraction(){
     //console.log(JSON.stringify(this.newInteraction));
-    infohandler.addInteraction(this.props.userID, this.state.contactID, this.newInteraction)
+    infohandler.addInteraction(this.props.userID, this.props.contactID, this.newInteraction)
     .then((res) => {
         //console.log(res);
         this.props.onClose();
@@ -155,7 +155,7 @@ export default class Modal extends React.Component {
             <div className="modal-header">
             <button onClick={this.props.onClose} className="modalCloseButton">Cancel</button>
             <h3 className="modal-title">Interaction with {this.props.fName} {this.props.lName}</h3>
-            <button onClick={evt => this.saveInteraction()} className="modalSaveButton">Save</button>
+            <button onClick={evt => {this.setState({contactID: this.props.contactID}); this.saveInteraction()}} className="modalSaveButton">Save</button>
             </div>
             <div className="modal-body">
               <div>Contact:</div>
@@ -198,7 +198,7 @@ export default class Modal extends React.Component {
             <button onClick={evt => this.saveInteraction()} className="modalSaveButton">Save</button>
             </div>
             <div className="modal-body">
-              <div>Contact:</div>
+              <div>Contact: </div>
               <select value={this.state.contactID} onChange={(event) => {
                 this.setState({contactID: event.target.selectedOptions[0].value});
               }}>
